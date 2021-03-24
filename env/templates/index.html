@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New DB</title>
+{% endblock %}
+
+{% block body %}
+<body style="font-size: 150%">
+	<center>
+		<div class="content">
+			<h1>Student Database</h1>
+			<table border="2" style="border: 1px solid black; padding: 2px;">
+				<tr>
+					<th>Student Name</th>
+					<th>Delete</th>
+				</tr>
+				{% for s in tasks %}
+				<tr>
+					<td>{{ s.content }}</td>
+					<td><a href="/delete/{{ s.id }}">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+			<br><br>
+			<form action="/" method="POST">
+				<input type="text" name="content" id="content">
+				<input type="submit" value="Add Student">
+			</form>
+		</div>
+	</center>
+</body>
+{% endblock %}
